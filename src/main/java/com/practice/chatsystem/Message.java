@@ -1,5 +1,6 @@
 package com.practice.chatsystem;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,11 +19,14 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "sender_id")
     private Long senderId;
 
+    @Column(name = "receiver_id")
     private Long receiverId;
 
     private String content;
 
+    @Column(name = "time_stamp")
     private LocalDateTime timeStamp;
 }
