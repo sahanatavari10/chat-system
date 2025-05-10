@@ -1,4 +1,4 @@
-package com.practice.chatsystem;
+package com.practice.chatsystem.message;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Message {
 
     @Id
@@ -29,4 +31,11 @@ public class Message {
 
     @Column(name = "time_stamp")
     private LocalDateTime timeStamp;
+
+    public Message(Long senderId, Long receiverId, String content) {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.content = content;
+        this.timeStamp = LocalDateTime.now();
+    }
 }
